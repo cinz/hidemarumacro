@@ -1,0 +1,12 @@
+// 「名前+Email」の「名前」を消してしまうマクロ
+// マクロ登録＞自動起動＞送信用エディタ起動時に登録することを想定。
+loaddll "TKInfo.dll";
+
+$to = dllfuncstr("CurrentHeader", "To");
+$cc = dllfuncstr("CurrentHeader", "Cc");
+
+$to_emailonly = dllfuncstr("CallByEmailList", "SetEmailOnly", $to);
+$cc_emailonly = dllfuncstr("CallByEmailList", "SetEmailOnly", $cc);
+
+$s = dllfuncstr( "SetHeader", "To", $to_emailonly );
+$s = dllfuncstr( "SetHeader", "Cc", $cc_emailonly );
