@@ -1,0 +1,7 @@
+// 特定フォルダへ移動するだけのマクロ（アーカイブボタン）
+loaddll "TKInfo.dll";
+
+// アーカイブフォルダ名
+$archive_folder_name = "受信\\Archive";
+
+#n = dllfunc( "Move", "", $archive_folder_name );
